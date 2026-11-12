@@ -1,6 +1,6 @@
 # Compatibility evidence
 
-Release candidate: 0.5.0. Runtime contract: official `@deepseek-ai/dsh@0.2.2-rc.1`.
+Release: 0.5.0. Runtime contract: official `@deepseek-ai/dsh@0.2.2-rc.1`.
 
 ## Local checks — 2026-11-12
 
@@ -14,7 +14,9 @@ Environment: macOS arm64, Node 24.21.0, pnpm 10.28.2.
 - Official profile composition (`--dump-config`) includes the library Host plugin.
 - Local authenticated HTTP/browser testing was blocked: the execution environment rejected loopback listening with `listen EPERM`. This is **not a passed Web test**. The test exits nonzero and records the blocked result.
 
-## CI
+## CI — passed 2026-11-12
+
+[GitHub Actions run 43142909870](https://github.com/JoyhouseLabs/joyhouse-dsh-knowledge/actions/runs/43142909870) passed on Linux x64 / Node 24.22.2. The official `@deepseek-ai/dsh@0.2.2-rc.1` CLI was installed from npm and ran without Joyhouse Desktop or Workbench. Independent install, build, 24 tests, profile composition, Web startup, launch-token/cookie exchange, anonymous rejection and authenticated vault RPC all passed. See [machine-readable report](ci-official-test-report.json). The release archive is the artifact built and tested by this run.
 
 The public workflow repeats the standalone build and tests, installs the exact official CLI from npm, and runs an isolated Web startup, official launch-token/cookie exchange, anonymous rejection and authenticated vault RPC check. The JSON report is uploaded as an artifact. Consult the actual workflow result; configuration alone is not evidence of a successful run.
 

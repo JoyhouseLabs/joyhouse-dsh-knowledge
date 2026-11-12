@@ -1,0 +1,13 @@
+{
+  "plugin": "0.5.0",
+  "runtime": "0.2.2-rc.1",
+  "platform": "linux-x64",
+  "node": "v24.22.2",
+  "timestamp": "2026-11-12T02:40:21.834Z",
+  "checks": {
+    "officialVersion": "passed",
+    "isolatedInstall": "passed",
+    "officialComposition": "passed",
+    "http": "passed: official auth exchange and owner vault RPC"
+  }
+}
