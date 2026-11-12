@@ -1,0 +1,34 @@
+name: Plugin checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.28.2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check
+      - run: pnpm pack --pack-destination dist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: plugin-package
+          path: dist/*.tgz
+      - name: Install official Harness
+        run: npm install --prefix "$RUNNER_TEMP/official-harness" @deepseek-ai/dsh@0.2.2-rc.1
+      - name: Test official CLI and authenticated HTTP
+        env:
+          DSH_CLI: ${{ runner.temp }}/official-harness/node_modules/@deepseek-ai/dsh/lib/bin.js
+        run: pnpm test:official
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: official-test-report
+          path: dist/official-test-report.json

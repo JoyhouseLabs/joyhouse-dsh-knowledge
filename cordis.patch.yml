@@ -1,0 +1,3 @@
+- insert:
+    - id: joyhouse-knowledge
+      name: '@joyhouse/dsh-knowledge'

@@ -1,0 +1,13 @@
+{
+  "plugin": "0.5.0",
+  "runtime": "0.2.2-rc.1",
+  "platform": "darwin-arm64",
+  "node": "v24.21.0",
+  "timestamp": "2026-11-12T02:35:15.860Z",
+  "checks": {
+    "officialVersion": "passed",
+    "isolatedInstall": "passed",
+    "officialComposition": "passed",
+    "http": "blocked: execution environment prohibits loopback listening"
+  }
+}
